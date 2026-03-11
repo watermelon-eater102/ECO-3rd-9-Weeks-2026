@@ -50,7 +50,7 @@ PROCEDURE mining(inventoryPick, gem_inventory, gemstones, rarity) {
 }
 """
 
-import random
+
 
 def mining(inventory, gem_inventory):
     gemstones = ["diamond", "ruby", "emerald", "topaz", "onyx", "opal", "turquoise", "lapis lazuli"]
@@ -58,3 +58,35 @@ def mining(inventory, gem_inventory):
     
     # Write your translated Python code below this line!
     pass
+# --------------------------------------
+start_percent = 0
+
+def mining(inventoryPick,gem_inventory,gemstones,rarity)
+    print("You head down to the mines...")
+
+    if (inventoryPick = "basic")
+        start_percent = 30
+    elif (inventoryPick = "good")
+        start_percent = 50
+    elif (inventoryPick = "better")
+        start_percent = 70
+    else:
+        start_percent = 90
+    
+    print("You swing your pick at the rock...")
+
+    chance = start_percent
+    keepSwinging = "y"
+
+    while keepSwinging = "y" and keepSwinging = "Y"
+        print("Swing? Y/N")
+        keepSwinging = input()
+
+        if keepSwinging = "y" or keepSwinging = "Y"
+            print("You reveal a little more gemstone...")
+            chance = chance + 5
+        else:
+            roll = random(1,100)
+            
+            if (roll <= chance)
+            
