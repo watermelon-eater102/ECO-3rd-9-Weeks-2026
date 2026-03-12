@@ -50,7 +50,7 @@ PROCEDURE mining(inventoryPick, gem_inventory, gemstones, rarity) {
 }
 """
 
-
+import random
 
 def mining(inventory, gem_inventory):
     gemstones = ["diamond", "ruby", "emerald", "topaz", "onyx", "opal", "turquoise", "lapis lazuli"]
@@ -61,14 +61,14 @@ def mining(inventory, gem_inventory):
 # --------------------------------------
 start_percent = 0
 
-def mining(inventoryPick,gem_inventory,gemstones,rarity)
+def mining(inventoryPick,gem_inventory,gemstones,rarity):
     print("You head down to the mines...")
 
-    if (inventoryPick = "basic")
+    if inventoryPick == "basic":
         start_percent = 30
-    elif (inventoryPick = "good")
+    elif inventoryPick == "good":
         start_percent = 50
-    elif (inventoryPick = "better")
+    elif inventoryPick == "better":
         start_percent = 70
     else:
         start_percent = 90
@@ -78,15 +78,22 @@ def mining(inventoryPick,gem_inventory,gemstones,rarity)
     chance = start_percent
     keepSwinging = "y"
 
-    while keepSwinging = "y" and keepSwinging = "Y"
+    while keepSwinging == "y" and keepSwinging == "Y":
         print("Swing? Y/N")
         keepSwinging = input()
 
-        if keepSwinging = "y" or keepSwinging = "Y"
+        if keepSwinging == "y" or keepSwinging == "Y":
             print("You reveal a little more gemstone...")
             chance = chance + 5
         else:
             roll = random(1,100)
             
-            if (roll <= chance)
-            
+            if roll <= chance:
+                gem_name = gemstones[random(1, len(gemstones))]
+                gem_rarity = rarity[random(1, len(rarity))]
+
+                print("You carefully uncover a " + gem_name + "!")
+            newGem = [gem_name, 0, gem_rarity]
+            gem_inventory.append(newGem)
+    else:
+        print("Unlucky! Your wild swings crack the gem. You'll have to return and try again.")
