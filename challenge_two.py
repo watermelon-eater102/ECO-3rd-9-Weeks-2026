@@ -54,7 +54,7 @@ PROCEDURE shop_buy(inventoryMoney, inventoryPick, stockList) {
 }
 """
 
-def shop_buy(stock, inventory):
+def shop_buy(stockList,inventory):
     # Write your translated Python code below this line!
     pass
     keepShopping = "y"
@@ -63,4 +63,37 @@ def shop_buy(stock, inventory):
         print("--- Item for Sale ---")
         i = 1
         for item in range(stockList):
-            print(i)
+            print(i + ". " + item[1] + " - $" + item[2])
+            i = i + 1
+
+        print("Enter the number of the item you want to buy: ")
+        choice = input()
+        
+        if choice >= 1 and choice <= len(stockList):
+            selectedItem = stockList[choice]
+            itemName = selectedItem[1]
+            itemPrice = selectedItem[2]
+
+            if inventoryMoney >= itemPrice:
+                inventoryMoney = inventoryMoney - itemPrice
+
+                if str(itemName, 10, 3) == "Enh":
+                    inventoryPick = "good"
+                elif str(itemName, 10, 3) == "Gre":
+                    inventoryPick = "better"
+                elif str(itemName, 10, 3) == "Sup":
+                    inventoryPick = "best"
+
+
+                    [stockList].pop(choice)
+                    print("You bought the " + itemName + "!")
+
+                else:
+                    print("You can't afford that!")
+            else:
+                print("Sorry we don't have that.")
+            
+            print("Keep shopping? Y/N")
+            keepShopping = input()
+
+    return inventoryMoney

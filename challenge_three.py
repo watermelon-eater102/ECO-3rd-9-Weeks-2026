@@ -83,4 +83,12 @@ import random
 
 def shop_sell(inventory, gem_inventory):
     # Write your translated Python code below this line!
-    pass
+    print("What have you got to sell?")
+
+    if len(gem_inventory) == 0:
+        print("If ya ain't got nothing to sell, why ya bothering me?")
+        return inventoryMoney
+    
+    print("--- Your Gems ---")
+    i = 1
+    for gem in gem_inventory 
